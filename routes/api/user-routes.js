@@ -11,6 +11,8 @@ const {
 router.route("/").get(getUsers).post(createNewUser);
 
 // /api/users/:userId
-router.route("/:userId").get(getUserbyId);
+router.route("/:userId").get(getUserbyId).put().delete();
+
+router.route("/:userId/friends/:friendId").post().delete();
 
 module.exports = router;
