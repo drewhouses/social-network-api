@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const { validateEmail } = require("../utils/data");
 
 const userSchema = new Schema(
   {
@@ -30,8 +31,8 @@ const userSchema = new Schema(
   },
   {
     toJSON: {
-      virtuals: true
-    }
+      virtuals: true,
+    },
   }
 );
 

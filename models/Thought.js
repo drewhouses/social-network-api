@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 const reactionSchema = require("./Reaction");
-const {format_date} = require('../utils/data')
+const { format_date } = require("../utils/data");
 
 const thoughtSchema = new Schema(
   {
@@ -12,7 +12,7 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: (x) => format_date(x)
+      get: (x) => format_date(x),
     },
     username: {
       type: String,
@@ -26,8 +26,6 @@ const thoughtSchema = new Schema(
     },
   }
 );
-
-// TODO Need getter to format createdAt time on query
 
 thoughtSchema.virtual("reactionCount").get(function () {
   return this.reactions.length;
