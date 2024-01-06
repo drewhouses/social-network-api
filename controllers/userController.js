@@ -5,7 +5,7 @@ module.exports = {
   async getUsers(req, res) {
     try {
       const users = await User.find();
-      res.json(users);
+      res.status(200).json(users);
     } catch (err) {
       res.status(500).json(err);
     }
@@ -21,7 +21,7 @@ module.exports = {
         return res.status(404).json({ message: "No user with that ID" });
       }
 
-      res.json(user);
+      res.status(200).json(user);
     } catch (err) {
       res.status(500).json(err);
     }
@@ -30,7 +30,7 @@ module.exports = {
   async createNewUser(req, res) {
     try {
       const user = await User.create(req.body);
-      res.json(user);
+      res.status(200).json(user);
     } catch (err) {
       res.status(500).json(err);
     }
